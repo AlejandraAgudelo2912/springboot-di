@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.alejandra.springboot.di.app.springboot_di.models.Product;
 
 @Primary
-@Repository
+@Repository("productList")
 public class ProductRepositoryImpl implements ProductRepository{
 
     private List<Product> data;

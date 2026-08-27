@@ -10,7 +10,7 @@ import com.alejandra.springboot.di.app.springboot_di.models.Product;
 
 //@Primary
 //es para indicar cuando hay mas de una implementacion de un bean, cual es la que se va a inyectar por defecto
-@Repository
+@Repository("productFoo")
 public class ProductRepositoryFoo implements ProductRepository{
 
     @Override

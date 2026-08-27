@@ -3,7 +3,7 @@ package com.alejandra.springboot.di.app.springboot_di.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.alejandra.springboot.di.app.springboot_di.models.Product;
@@ -12,11 +12,14 @@ import com.alejandra.springboot.di.app.springboot_di.repositories.ProductReposit
 @Service
 public class ProductServiceImpl implements ProductService{
 
+    //@Autowired
+    //@Qualifier("productFoo")
     private ProductRepository repository;
 
-    public ProductServiceImpl(ProductRepository repository) {
-        this.repository = repository;
+    public ProductServiceImpl(@Qualifier("productFoo") ProductRepository repository) {
+         this.repository = repository;
     }
+    //el qualifier es para indicar cual de las implementaciones de un bean se va a inyectar, en este caso la que tiene el nombre productList, que es la de ProductRepositoryImpl
 
     @Override
     public List<Product> findAll(){
