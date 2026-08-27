@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService{
     //@Qualifier("productFoo")
     private ProductRepository repository;
 
-    public ProductServiceImpl(@Qualifier("productFoo") ProductRepository repository) {
+    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) {
          this.repository = repository;
     }
     //el qualifier es para indicar cual de las implementaciones de un bean se va a inyectar, en este caso la que tiene el nombre productList, que es la de ProductRepositoryImpl
@@ -28,6 +28,8 @@ public class ProductServiceImpl implements ProductService{
             // Product newProd = new Product(p.getId(),p.getName(),priceImp.longValue());
             Product newProd = (Product) p.clone();
             newProd.setPrice(priceTax.longValue());
+            //p.setPrice(priceTax.longValue());
+            // return p;
             return newProd;
         }).collect(Collectors.toList());
     }
