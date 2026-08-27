@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     private Environment environment;
 
-    public ProductServiceImpl(@Qualifier("productList") ProductRepository repository) {
+    public ProductServiceImpl(@Qualifier("productJson") ProductRepository repository) {
          this.repository = repository;
     }
     //el qualifier es para indicar cual de las implementaciones de un bean se va a inyectar, en este caso la que tiene el nombre productList, que es la de ProductRepositoryImpl
