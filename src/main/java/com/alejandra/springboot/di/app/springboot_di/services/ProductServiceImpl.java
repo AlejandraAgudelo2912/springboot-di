@@ -12,8 +12,11 @@ import com.alejandra.springboot.di.app.springboot_di.repositories.ProductReposit
 @Service
 public class ProductServiceImpl implements ProductService{
 
-    @Autowired
     private ProductRepository repository;
+
+    public ProductServiceImpl(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Product> findAll(){
@@ -30,6 +33,5 @@ public class ProductServiceImpl implements ProductService{
     public Product findById(Long id){
         return repository.findById(id);
     }
-
 
 }
